@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+<div>
+    <span class="badge badge-light">Currently <i class="fas fa-info-circle"></i> {{ header }}</span>
+  </div>
+<table class="table table-bordered">
+  <thead class="table-dark">
+    <tr class="text-center">
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Brand</th>
+      <th scope="col">Price</th>
+      <th scope="col">Status</th>
+      <th scope="col">Remarks</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for item in items %}
+    <tr>
+      <th scope="row">{{ item.pk }}</th>
+      <td>{{ item.name }}</td>
+      <td>{{ item.brand }}</td>
+      <td>{{ item.price }} BDT</td>
+      <td>{{ item.status }}</td>
+      <td>{{ item.remarks }}</td>
+    </tr>
+   {% endfor %}
+  </tbody>
+</table>
+<!--Pagination-->
+    <nav aria-label="Page navigation example">
+    {% if items.has_other_pages %}
+        <ul class="pagination pagination-sm justify-content-end">
+            {% if items.has_previous %}
+                <li class="page-item active"><a class="page-link" href="?page=
+                        {{ items.previous_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
+            {% else %}
+                <li class="page-item"><a class="page-link" href="#!"><span aria-hidden="true">&laquo;</span></a></li>
+            {% endif %}
+            {% for num in items.paginator.page_range %}
+                {% if items.number == num %}
+                    <li class="page-item"><a class="page-link" href="#!">{{ num }}</a></li>
+                {% else %}
+                    <li class="page-item"><a class="page-link" 
+                            href="?page={{ num }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">{{ num }}</a></li>
+                {% endif %}
+            {% endfor %}
+            {% if items.has_next %}
+                <li class="page-item"><a class="page-link" 
+                        href="?page={{ items.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}"><span aria-hidden="true">&raquo;</span></a></li>
+            {% else %}
+                <li class="page-item"><a class="page-link" href="#!"><span aria-hidden="true">&raquo;</span></a></li>
+            {% endif %}
+        </ul>
+      {% endif %}
+    </nav>
+</div>
+{% endblock %}

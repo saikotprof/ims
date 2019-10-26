@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mb-4">
+<form method="post">{% csrf_token %}
+	<h4>Are you sure?</h4>
+    <p>Are you sure you want to delete "{{ object.brand }} {{ object.name }}"? All of the following related items will be deleted</p>
+    <button type="submit" class="btn btn-sm btn-outline-danger">Yes, I'm sure</button>
+    <a class="btn btn-sm btn-outline-secondary" href="{% url 'samsung' %}">No, take me back</a>
+</form>
+</div>
+{% endblock %}

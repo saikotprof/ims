@@ -1,0 +1,89 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Inventory Management System</title>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.2/css/all.css" integrity="sha384-rtJEYb85SiYWgfpCr0jn174XgJTn4rptSOQsMroFBPQSGLdOC5IbubP6lJ35qoM9" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/navbar.css' %}">
+<style type="text/css">
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+
+      .asteriskField{
+        display: none;
+      }
+    </style>
+</head>
+
+<body>
+<div class="container">
+  <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
+        <div class="container">
+          <a class="navbar-brand mr-4" href="{% url 'home' %}">
+            <img src="{% static 'img/logo.png' %}" height="45" width="50" alt="img"><b>Inventory Management System</b></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarToggle">
+            <div class="navbar-nav mr-auto"></div>
+            
+            <!-- Navbar Right Side -->
+            <div class="navbar-nav">
+                <a class="nav-item nav-link" href="{% url 'home' %}"><b>HOME</b></a>
+                <a class="nav-item nav-link" href="{% url 'product-details' %}"><b>PRODUCTS</b></a>
+                <a class="nav-item nav-link" href="#"><b>SERVICE</b></a>
+                <a class="nav-item nav-link" href="#"><b>CONTACT</b></a>
+                <a class="nav-item nav-link" href="#"><b>SIGNUP</b></a>
+            </div>
+          </div>
+        </div>
+      </nav>
+  <br>
+  <br>
+  <br>
+  <div class="display-4">
+    <img src="{% static 'img/imsb.jpeg'%}" width="100%" height="200" alt="ims benner">
+  </div>
+    <div class="project-tab">
+      <div class="row">
+        <a href="{% url 'product-details' %}" class="col btn btn-link nav-link btn-md btn-trim" role="button"><i class="fab fa-product-hunt" aria-hidden="true"></i> <b>Products</b></a>
+        <a href="{% url 'apple' %}" class="col btn btn-link nav-link btn-md btn-trim" role="button"><i class="fas fa-mobile-alt" aria-hidden="true"></i> <b>Apple</b></a>
+        <a href="{% url 'samsung' %}" class="col btn btn-link nav-link btn-md btn-trim" role="button"><i class="fas fa-mobile-alt" aria-hidden="true"></i> <b>Samsung</b></a>
+        <a href="{% url 'xiaomi' %}" class="col btn btn-link nav-link btn-md btn-trim" role="button"><i class="fas fa-mobile-alt" aria-hidden="true"></i> <b>Xiaomi</b></a>
+    </div>
+  </div>
+</div>
+
+  <script src="https://kit.fontawesome.com/7e260c1125.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+{% block content %}
+
+{% endblock %}
+</div>
+<!--Footer-->
+<footer class="footer mt-auto py-3 bg-dark fixed-footer">
+  <div class="container">
+    <span class="text-light">© 2019 INVENTORY MANAGEMENT SYSTEM. ALL RIGHTS RESERVED. DESIGNED BY ASIF ARMAN SAIKOT.</span>
+  </div>
+</footer>
+</body>
+</html>
